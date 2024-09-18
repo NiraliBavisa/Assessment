@@ -1,23 +1,57 @@
 <?php
 include 'db.php';
-    $id = $_GET['uid'];
-    $sql = "select * from users where id=$id ";
-    $run = mysqli_query($conn,$sql);
-    $fetch = mysqli_fetch_array($run);
+include 'fetch.php';
+if(isset($_POST['add']))
+{
+    $name = $_POST['name'];
+    $title = $_POST['title'];
+    $con = $_POST['con'];
+    $sql  = "insert into users (GeneratorName,Title,Content) values ('$name','$title','$con')";
+   $insert =  mysqli_query($conn,$sql);
+
+   if($insert)
+   {
+    echo "<br>record inserted..<br>";
+   }
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<a href="assessment1.php">GO back</a>
-    <h1>User Details : </h1>
-   <h2>Id :   <?php echo $id; ?></h2>
-   <h3>Generator Name:  <?php echo $fetch['name'];?> </h3>
-   <h3>Title:  <?php echo $fetch['title'];?></h3>
-   <h3>Content:  <?php echo $fetch['con'];?></h3>
+<html>
+    <head><title>Assessment</title></head>
+    <body>
+    <center>
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Welcome to Python E - Note</th>
+            </tr>
+        </thead>
+      <tbody>    
+<tr>
+    <td>Enter Python E-Note Generator Name :</td>
+    <td>
+        <input type="text" name="name" >
+    </td>
+</tr>
+<tr>
+    <td>Enter Python E-Note Title :</td>
+    <td>
+        <input type="text" name="title" >
+    </td>
+</tr>
+<tr>
+    <td>Enter Python E-Note Content :</td>
+    <td>
+        <input type="text" name="con" >
+    </td>
+</tr>
+<tr>    
+            <td>
+                <input type="submit" name="add" value="Generate">
+            </td>
+        </tr>
+</tbody>
+</center>
+</form>
 </body>
 </html>

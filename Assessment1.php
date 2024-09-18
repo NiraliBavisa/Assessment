@@ -4,19 +4,6 @@ if($conn)
 {
     echo "connected...!";
 }
-if(isset($_POST['gen']))
-{
-    $name = $_POST['name'];
-    $title=$_POST['title'];
-    $con=$_POST['con'];
-    $sql  = "insert into users (name,title,con) values ('$name','$title','$con')";
-   $insert =  mysqli_query($conn,$sql);
-
-   if($insert)
-   {
-    echo "<br>record inserted..<br>";
-   }
-}
 ?>
 <html>
     <head><title>Assessment</title></head>
@@ -30,38 +17,20 @@ if(isset($_POST['gen']))
             </tr>
         </thead>
       <tbody>
-       
+       <?php include 'fetch.php'; ?>
       <tr>
-            <td><a href="gen.php?uid=<?php echo $fetch['id']?>"><input type="submit" name="gen" value="Press 1 for generate Note"></td>
+            <td><a href="gen.php"><input type="submit" name="gen" value="Press 1 for generate Note"></a></td>
         </tr>
       <tr>
-      <td><a href="view.php?uid=<?php echo $fetch['id']?>"><input type="submit" name="view" value="Press 2 for View Note"></td>
+      <td><a href="view.php"><input type="submit" name="view" value="Press 2 for View Note"></a></td>
         </tr>
       <tr>
-      <td><input type="submit" name="exit" value="Press 4 for Exit"></td>
+      <td><a href="Assessment1.php"><input type="submit" name="exit" value="Press 4 for Exit"></a></td>
         </tr>
       <tr>
             <td>Enter your choice :</td>
             <td>
                 <input type="text" name="choice" >
-            </td>
-        </tr>
-      <tr>
-            <td>Enter Python E-Note Generator Name :</td>
-            <td>
-                <input type="text" name="name" >
-            </td>
-        </tr>
-      <tr>
-            <td>Enter Python E-Note Title :</td>
-            <td>
-                <input type="text" name="title" >
-            </td>
-        </tr>
-      <tr>
-            <td>Enter Python E-Note Content :</td>
-            <td>
-                <input type="text" name="con" >
             </td>
         </tr>
       </tbody>
