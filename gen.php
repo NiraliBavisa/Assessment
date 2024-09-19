@@ -12,6 +12,7 @@ if(isset($_POST['add']))
    if($insert)
    {
     echo "<br>record inserted..<br>";
+    header('Location:Assessment1.php');
    }
 }
 ?>

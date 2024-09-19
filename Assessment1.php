@@ -1,8 +1,16 @@
 <?php
 include 'db.php';
-if($conn)
+if(isset($_POST['submit'])=='1')
 {
-    echo "connected...!";
+    header('Location:gen.php');
+}
+if(isset($_POST['submit'])=='2')
+{
+    header('Location:view.php');
+}
+if(isset($_POST['submit'])=='4')
+{
+    header('Location:exit.php');
 }
 ?>
 <html>
@@ -19,20 +27,21 @@ if($conn)
       <tbody>
        <?php include 'fetch.php'; ?>
       <tr>
-            <td><a href="gen.php"><input type="submit" name="gen" value="Press 1 for generate Note"></a></td>
+            <td>Press 1 for generate Note</td>
         </tr>
       <tr>
-      <td><a href="view.php"><input type="submit" name="view" value="Press 2 for View Note"></a></td>
+      <td>Press 2 for View Note</td>
         </tr>
       <tr>
-      <td><a href="Assessment1.php"><input type="submit" name="exit" value="Press 4 for Exit"></a></td>
+      <td>Press 4 for Exit</td>
         </tr>
       <tr>
             <td>Enter your choice :</td>
             <td>
                 <input type="text" name="choice" >
             </td>
-        </tr>
+      </tr>
+    <tr><td><input type="submit" name="submit"></tr>
       </tbody>
     </table>
 </form>
