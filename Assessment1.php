@@ -4,13 +4,17 @@ if(isset($_POST['submit'])=='1')
 {
     header('Location:gen.php');
 }
-if(isset($_POST['submit'])=='2')
+else if(isset($_POST['submit'])=='2')
 {
     header('Location:view.php');
 }
-if(isset($_POST['submit'])=='4')
+else if(isset($_POST['submit'])=='4')
 {
     header('Location:exit.php');
+}
+else
+{
+    echo "Invalid Input";
 }
 ?>
 <html>
