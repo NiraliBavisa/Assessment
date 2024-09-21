@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
-include 'fetch.php';
-    $sql = "select * from users";
+$id=$_GET['vid'];
+    $sql = "select * from users where Id=$id";
     $run = mysqli_query($conn,$sql);
     $fetch = mysqli_fetch_array($run);
 ?>
